@@ -39,9 +39,12 @@ const savedDeliveryCity = localStorage.getItem("deliveryCity");
 const savedExperienceInCatering = localStorage.getItem("experienceInCatering");
 const savedCheckboxes = checkboxes.forEach((checkbox, index) => {
   const savedState = localStorage.getItem(`checkbox${index + 1}`);
-  checkbox.checked = savedState === "true";
-  const event = new Event("input", { bubbles: true });
-  checkbox.dispatchEvent(event);
+  if(savedState){
+
+    checkbox.checked = savedState === "true";
+    const event = new Event("input", { bubbles: true });
+    checkbox.dispatchEvent(event);
+  }
 });
 
 // ######################### Checking If Data Exists #########################
